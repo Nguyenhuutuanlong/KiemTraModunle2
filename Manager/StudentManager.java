@@ -37,25 +37,27 @@ public class StudentManager implements IManager<Student> {
         int index = findIndexByid(id);
         list.set(index, student);
     }
-public void Arrange(){
-    for (int i = 0; i < list . size(); i++) {
-        for (int j = 0; j < list.size()-1; j++) {
-            if (list.get(j).getScore()>list.get(j+1).getScore()){
-                Student temp = list.get(j);
-                list.set(j,list.get(j+1));
-                list.set(j+1,temp);
-
-            }
-
-        }
-    }
-    for (Student student : list){
-        System.out.println(student);
-    }
-}
 
     @Override
     public ArrayList<Student> findAll() {
-        return this.list;
+        return list;
     }
-}
+
+    public ArrayList<Student> score() {
+        for (int i = 1; i < list.size(); i++) {
+            for (int j = 0; j < list.size() - i; j++) {
+                if (list.get(j).getScore() > list.get(j + 1).getScore()) {
+                    Student temp = list.get(j);
+                    list.set(j, list.get(j + 1));
+                    list.set(j + 1, temp);
+                }
+            }
+        }
+        for (Student student : list) {
+            System.out.println(student);
+
+        }
+        return null;
+    }
+
+    }

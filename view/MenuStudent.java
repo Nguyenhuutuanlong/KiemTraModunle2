@@ -31,7 +31,8 @@ public class MenuStudent {
                     showAll();
                     break;
                 case 5:
-
+                    Arrangestudent();
+                    break;
 
             }
         }
@@ -54,7 +55,7 @@ public class MenuStudent {
         System.out.println("NHập trung bình của bạn ");
 
         double score = InputInt.nextDouble();
-        Student student = new Student(id,name, age, address,score);
+        Student student = new Student(id, name, age, address, score);
         studentManager.add(student);
         System.out.println("Thêm thành công");
     }
@@ -69,7 +70,8 @@ public class MenuStudent {
         studentManager.delete(index);
         System.out.println("Xóa thành công");
     }
-    public void update(){
+
+    public void update() {
         System.out.println("===Menu Edit=== ");
         System.out.println("Nhap id muon sua");
         int idEdit = InputInt.nextInt();
@@ -82,8 +84,14 @@ public class MenuStudent {
         System.out.println("Nhập điểm tb");
         double score = InputInt.nextDouble();
 
-        Student student = new Student(idEdit,name,age,address,score);
-        studentManager.update(idEdit ,student);
+        Student student = new Student(idEdit, name, age, address, score);
+        studentManager.update(idEdit, student);
         System.out.println("Sửa thành công");
+    }
+
+    public void Arrangestudent () {
+        System.out.println("sắp xếp theo thứ tự điểm từ thấp đến cao");
+
+        studentManager.score();
     }
 }
